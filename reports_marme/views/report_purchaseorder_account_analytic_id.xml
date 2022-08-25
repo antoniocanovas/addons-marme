@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<odoo>
+    <data>
+        <record id="report_purchaseorder_account_analytic_id" model="ir.ui.view">
+            <field name="name">Purchase_Order_with_analytic_in_line</field>
+            <field name="inherit_id" ref="purchase.report_purchaseorder_document"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//th[@name='th_taxes']" position="after">
+                    <th class="text-right" name="th_analytic"><strong>Proyecto</strong></th>
+                </xpath>
+                <xpath expr="//td[@name='td_taxes']" position="after">
+                    <td name="td_analytic" class="text-right">
+                        <span t-field="line.account_analytic_id"/>
+                    </td>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
